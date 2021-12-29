@@ -3,15 +3,6 @@ import Layout, { siteTitle } from '../components/layout'
 import utilStyles from '../styles/utils.module.css'
 import { getSortedPostsData } from '../lib/posts'
 
-export async function getStaticProps() {
-  const allPostsData = getSortedPostsData()
-  return {
-    props: {
-      allPostsData
-    }
-  }
-}
-
 export default function Home({ allPostsData }) {
   return (
     <Layout home>
@@ -24,10 +15,6 @@ export default function Home({ allPostsData }) {
             I've graduated from Flatiron School's software engineering course where I've learned Ruby, JavaScript, Ruby on Rails, React, Redux, SQL, Git, Active Storage, CSS, HTML, and Bootstrap - just to name a few. I'm hoping to try out different stacks like MEAN, MERN, and learn Python, Node.js, d3js, AWS, Snowflake, Sanity.io, anything I happen to stumble upon next. In addition to coding, I am a mom of two beautiful kids! I also love traveling. So far, I've been to 26 countries and counting.
 
             My experience of living and working in Malaysia has definitely been an advantage, giving me unique skills in cross-cultural collaboration, and now with an added passion for applying new technologies to provide solutions to social and global issues. If you would like to share any resources and advice in traversing through the job search in the tech industry, please feel free to connect with me on Linkedin, GitHub, Twitter, or email me.</p>
-        <p>
-          (This is a sample website - you’ll be building a site like this on{' '}
-          <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
-        </p>
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
@@ -45,4 +32,13 @@ export default function Home({ allPostsData }) {
       </section>
     </Layout>
   )
+}
+
+export async function getStaticProps() {
+  const allPostsData = getSortedPostsData()
+  return {
+    props: {
+      allPostsData
+    }
+  }
 }
